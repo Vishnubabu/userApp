@@ -35,14 +35,14 @@ For input request validations using [express-validator](https://github.com/ctava
 Frontend
 -------------
 Its a React App. It proxies all '/api' requests to the Backend.
-Its in the folder [./client](https://github.com/Vishnubabu/iTunesApp/tree/master/client)
+Its in the folder [./client](https://github.com/Vishnubabu/userApp/tree/master/client)
 Used - [create-react-app](https://github.com/facebookincubator/create-react-app) for creation
 
 It has 3 react components
 
-> - SearchBox
-> - LookupBox
-> - ItemResults
+> - Header
+> - UserDetails
+> - Login
 
 Uses Routes from [react-router](https://github.com/ReactTraining/react-router).
 'search' and 'lookup' actions change the route and the components listen to the route changes and fetch data from the backend.

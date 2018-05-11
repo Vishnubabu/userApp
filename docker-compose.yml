@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-    itunesapp:
+    userapp:
         build:
             context: .
             dockerfile: app.docker

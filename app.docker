@@ -1,7 +1,7 @@
 FROM mhart/alpine-node:8
 
-ADD . /var/iTunesApp
+ADD . /var/userApp
 
-RUN cd /var/iTunesApp; npm run-script build; npm start
+RUN cd /var/userApp; npm run-script build; npm start
 
 CMD bash
