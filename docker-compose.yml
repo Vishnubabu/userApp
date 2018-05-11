@@ -1,0 +1,7 @@
+version: '2'
+
+services:
+    itunesapp:
+        build:
+            context: .
+            dockerfile: app.docker
