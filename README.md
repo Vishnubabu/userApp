@@ -45,7 +45,6 @@ It has 3 react components
 > - Login
 
 Uses Routes from [react-router](https://github.com/ReactTraining/react-router).
-'search' and 'lookup' actions change the route and the components listen to the route changes and fetch data from the backend.
 
 Uses [redux-promise-middleware](https://github.com/pburtchaell/redux-promise-middleware/blob/master/docs/introduction.md) for handling async requests
 
