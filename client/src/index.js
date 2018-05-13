@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { BrowserRouter as Router, Route, Redirect, withRouter } from 'react-router-dom';
+import { StaticRouter as Router, Route, Redirect, withRouter } from 'react-router-dom';
 import promiseMiddleware from 'redux-promise-middleware';
 import App from './components/App';
 import reducers from './reducers';
@@ -12,19 +12,21 @@ const store = createStore(reducers, {}, applyMiddleware(
 ));
 
 /* passing redux store */
-/* Redirect for making the default route '/search' */
+/* Redirect for making the default route '/details' */
 /* withRouter with send history prop to the component */
 
-render(
-    <Provider store={store}>
-        <Router>
-            <div>
-                <Route exact path="/" render={() => (
-                    <Redirect to="/details"/>
-                )}/>
-                <Route path="/" component={ withRouter(App) } />
-            </div>
-        </Router>
-    </Provider>,
-    document.getElementById('root')
-);
+export default () => {
+    return (
+        <Provider store={store}>
+            <Router>
+                <div>
+                    <Route exact path="/" render={() => (
+                        <Redirect to="/details"/>
+                    )}/>
+                    <Route path="/" component={ withRouter(App) } />
+                </div>
+            </Router>
+        </Provider>
+    );
+};
+
