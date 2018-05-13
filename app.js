@@ -22,3 +22,5 @@ app.use((req, res, next) => {
 });
 
 app.listen(config.server.host);
+
+module.exports = app;
