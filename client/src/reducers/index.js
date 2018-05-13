@@ -1,15 +1,15 @@
 export default (state = {}, action) => {
-	let permissionDenied;
-	
+    let permissionDenied;
+
     switch(action.type) {
         case 'LOGIN_BOX_CHANGED':
             return {
                 ...state,
                 loginBox: { ...state.loginBox, ...action.loginBox }
             };
-            
-/**************************************************/      
-      
+
+/**************************************************/
+
         case 'LOGIN_FULFILLED':
             return {
                 ...state,
@@ -20,17 +20,19 @@ export default (state = {}, action) => {
                 ...state,
                 loginBox: { ...state.loginBox, loginError: true }
             };
-            
-/**************************************************/      
-      
+
+/**************************************************/
+
         case 'LOGOUT_FULFILLED':
             return {
                 ...state,
-                isLoggedIn: false
+                isLoggedIn: false,
+                userDetails: null,
+                readingPreference: null
             };
 
-/**************************************************/      
-      
+/**************************************************/
+
         case 'USER_DETAILS_FULFILLED':
             return {
                 ...state,
@@ -38,15 +40,19 @@ export default (state = {}, action) => {
                 isLoggedIn: true
             };
         case 'USER_DETAILS_REJECTED':
-			permissionDenied = action.payload == 'PERMISSION_DENIED';
-			
+            permissionDenied = action.payload === 'PERMISSION_DENIED';
+
             return {
                 ...state,
-                ...(permissionDenied && {isLoggedIn: false})
+                ...(permissionDenied && {
+                    isLoggedIn: false,
+                    userDetails: null,
+                    readingPreference: null
+                })
             };
-            
+
 /**************************************************/
-            
+
         case 'READING_PREFERENCE_FULFILLED':
             return {
                 ...state,
@@ -54,16 +60,20 @@ export default (state = {}, action) => {
                 isLoggedIn: true
             };
         case 'READING_PREFERENCE_REJECTED':
-			permissionDenied = action.payload == 'PERMISSION_DENIED';
-			
+            permissionDenied = action.payload === 'PERMISSION_DENIED';
+
             return {
                 ...state,
-                ...(permissionDenied && {isLoggedIn: false})
-            };		
-            
+                ...(permissionDenied && {
+                    isLoggedIn: false,
+                    userDetails: null,
+                    readingPreference: null
+                })
+            };
+
 /**************************************************/
-            
-		default:
+
+        default:
             return state;
     }
 };

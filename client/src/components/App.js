@@ -6,15 +6,15 @@ import UserDetails from '../components/UserDetails';
 
 export default ({ history }) => (
     <div>
-		<Header { ...{history} } />
-    
-		<main role="main" className="container">
-			<Route path="/login" render={ () => (
-				<Login { ...{history} } />
-			)} />
-			<Route path="/details" render={ () => (
-				<UserDetails { ...{history} } />
-			)} />
-		</main>
+        <Header { ...{history} } />
+
+        <main role="main" className="container">
+            <Route path="/login" render={ () => (
+                <Login { ...{history} } />
+            )} />
+            <Route path="/details" render={ () => (
+                <UserDetails { ...{history} } />
+            )} />
+        </main>
     </div>
 );
